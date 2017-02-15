@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour {
     private int counterOfLetters;
     private int[] freqOfLetters;
     string letter;
+    private string LettersSelected;
+    string[] selectedWords;
+    public Text WordsToFind;
 
     private string[] abc = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     private string[] colors = {"RED", "BLUE", "BLACK", "WHITE", "YELLOW", "GREEN", "PURPLE", "PINK", "BROWN", "ORANGE" };
@@ -24,6 +27,7 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
+        LettersSelected = "";
         DivideWords();
         if(counterOfLetters <= 100)
         {
@@ -31,14 +35,15 @@ public class GameController : MonoBehaviour {
         }
         WriteLetterRandomly();
 		FillRemainingButtons ();
+        CurrentWords();
     }
 
     void DivideWords()
     {
         System.Random r = new System.Random();    
         int pos;
-        int numberOfWords = 5;
-        string[] selectedWords = new string[numberOfWords];
+        int numberOfWords = 7;
+        selectedWords = new string[numberOfWords];
         int[] freqOfWords = new int[numberOfWords];
         for (int i = 0; i < freqOfWords.Length; i++)
         {
@@ -64,7 +69,7 @@ public class GameController : MonoBehaviour {
         }
         counterOfLetters = mixedWords.Length;
         allLetters = mixedWords.ToCharArray();
-        Debug.Log(mixedWords);
+        //Debug.Log(mixedWords);
     }
 
     bool IsWordInArray(string[] wordArray, string word)
@@ -85,7 +90,7 @@ public class GameController : MonoBehaviour {
         System.Random r = new System.Random();
 
         freqOfLetters = new int[allLetters.Length];
-        Debug.Log(allLetters.Length);
+        //Debug.Log(allLetters.Length);
         for (int i = 0; i < freqOfLetters.Length; i++)
         {
             freqOfLetters[i] = 0;
@@ -111,7 +116,7 @@ public class GameController : MonoBehaviour {
 			}
             
         }
-		Debug.Log (h);
+		//Debug.Log (h);
     }
 
 	bool PosAlreadyUsed(int[] array, int randomPos){
@@ -162,4 +167,20 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
+
+    void CurrentWords()
+    {
+        string CurrentWordsToFind = "Mixed Words \n\n";
+        for(int i = 0; i < selectedWords.Length; i++)
+		{
+            CurrentWordsToFind += selectedWords[i] + "\n";
+        }
+        WordsToFind.text = CurrentWordsToFind;
+    }
+
+    public string CurrentWord(string currentLetter)
+    {
+        LettersSelected += currentLetter;
+        return LettersSelected;
+    }
 }

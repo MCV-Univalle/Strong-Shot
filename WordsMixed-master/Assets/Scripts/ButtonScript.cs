@@ -8,11 +8,14 @@ public class ButtonScript : MonoBehaviour {
     public Text letter;
     public string letterSelected;
     private GameController gameController;
+    public Text CurrentWord;
+    private string message = "";
 
     public void GetLetter()
     {
         letterSelected = letter.text;
-        letter.text = "?"; 
+        message = gameController.CurrentWord(letterSelected);
+        CurrentWord.text = message;
     }
 
     public void SetGameControllerReference(GameController controller)
