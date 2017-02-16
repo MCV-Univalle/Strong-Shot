@@ -11,9 +11,7 @@ public class moveTarget : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.transform.Rotate (Vector3.up*spinSpeed*Time.deltaTime);	
-		//gameObject.transform.Rotate (Vector3.back*spinSpeed*Time.deltaTime);
-		//gameObject.transform.Rotate (Vector3.left*spinSpeed*Time.deltaTime);
-		gameObject.transform.Translate(Vector3.back*Mathf.Cos(Time.timeSinceLevelLoad)*moveSpeed);
+		//gameObject.transform.Rotate (Vector3.up*spinSpeed*Time.deltaTime);	
+		gameObject.transform.Translate(Vector3.left*Mathf.Sin(Time.timeSinceLevelLoad)*moveSpeed);
 	}
 }
