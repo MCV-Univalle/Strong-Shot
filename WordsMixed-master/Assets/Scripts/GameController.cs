@@ -13,6 +13,11 @@ public class GameController : MonoBehaviour {
     private string LettersSelected;
     string[] selectedWords;
     public Text WordsToFind;
+	public KeyCode WordsSelectedForReview;
+	private Button[] selectedButtons;
+	private int buttonIndexCounter;
+	public GameObject gameOverPanel;
+	public Text gameOverText;
 
     private string[] abc = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     private string[] colors = {"RED", "BLUE", "BLACK", "WHITE", "YELLOW", "GREEN", "PURPLE", "PINK", "BROWN", "ORANGE" };
@@ -28,6 +33,10 @@ public class GameController : MonoBehaviour {
     void Start()
     {
         LettersSelected = "";
+		buttonIndexCounter = 0;
+		selectedButtons = new Button[100];
+		gameOverPanel.SetActive (false);
+
         DivideWords();
         if(counterOfLetters <= 100)
         {
@@ -42,7 +51,7 @@ public class GameController : MonoBehaviour {
     {
         System.Random r = new System.Random();    
         int pos;
-        int numberOfWords = 7;
+        int numberOfWords = 2;
         selectedWords = new string[numberOfWords];
         int[] freqOfWords = new int[numberOfWords];
         for (int i = 0; i < freqOfWords.Length; i++)
@@ -178,9 +187,56 @@ public class GameController : MonoBehaviour {
         WordsToFind.text = CurrentWordsToFind;
     }
 
-    public string CurrentWord(string currentLetter)
+	public string CurrentWord(string currentLetter, ref Button button)
     {
         LettersSelected += currentLetter;
+		selectedButtons [buttonIndexCounter] = button;
+		buttonIndexCounter++;
         return LettersSelected;
     }
+
+	void Update()
+	{
+		if (Input.GetKeyDown (KeyCode.Space) ) {
+			if (WordCorrect ()) {
+				for (int i = 0; i < selectedWords.Length; i++) {
+					if (selectedWords [i] == LettersSelected) {
+						LettersSelected = "";
+						selectedWords [i] = "";
+						CurrentWords ();
+						break;
+					}
+				}
+			} else {
+				for (int i = 0; i < selectedButtons.Length; i++) {
+					selectedButtons [i].interactable = true;
+					LettersSelected = "";
+				}
+			}
+		}
+		GameOver ();
+	}
+
+	private bool WordCorrect(){
+		for (int i = 0; i < selectedWords.Length; i++) {
+			if (selectedWords [i] == LettersSelected) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	void GameOver(){
+		for (int i = 0; i < selectedWords.Length; i++) {
+			if (selectedWords [i] != "") {
+				return;
+			}
+		}
+		for (int i = 0; i < buttonMatrix.Length; i++) {
+			buttonMatrix [i].GetComponentInParent<ButtonScript> ().button.interactable = false;
+			gameOverPanel.SetActive (true);
+		}
+	}
+
 }
+

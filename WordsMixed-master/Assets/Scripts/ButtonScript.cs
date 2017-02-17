@@ -13,10 +13,19 @@ public class ButtonScript : MonoBehaviour {
 
     public void GetLetter()
     {
-        letterSelected = letter.text;
-        message = gameController.CurrentWord(letterSelected);
-        CurrentWord.text = message;
+		
+		letterSelected = letter.text;
+		message = gameController.CurrentWord (letterSelected, ref button);
+		button.interactable = false;
+		CurrentWord.text = message;
     }
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			message = "";
+			CurrentWord.text = message;
+		}
+	}
 
     public void SetGameControllerReference(GameController controller)
     {
