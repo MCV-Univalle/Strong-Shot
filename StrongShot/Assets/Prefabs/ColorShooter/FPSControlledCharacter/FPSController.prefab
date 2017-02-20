@@ -508,13 +508,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c429634c4a119e41a9053eb58d4b925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDamage: 0
+  gunDamage: 1
   fireRate: 0.25
   weaponRange: 50
   hitForce: 0
   gunEnd: {fileID: 4680412875456638}
   color: {r: 1, g: 1, b: 1, a: 1}
-  CurrentColor: 0
+  Current: 0
+  Next: 1
+  Previous: 2
 --- !u!114 &114177386013440292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -609,9 +611,9 @@ MonoBehaviour:
       m_RotationOrder: 4
     VerticaltoHorizontalRatio: 2
   m_JumpBob:
-    BobDuration: 0.2
-    BobAmount: 0.1
-  m_StepInterval: 5
+    BobDuration: 0
+    BobAmount: 5
+  m_StepInterval: 0
   m_FootstepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}

@@ -6,21 +6,17 @@ public class ShootableBox : MonoBehaviour {
 
 	//The box's current health point total
 	public int currentHealth = 3;
-	public int id = 0;
+    Color color = Color.red;
 
-	List<Color> ColorList = new List<Color> ();
+    void start(){
+        
+    }
 
-	void start(){
-		ColorList.Add(Color.red);
-		//ColorList.Add (Color.green);
-		ColorList.Add(Color.yellow);
-		ColorList.Add(Color.blue);
-	}
-	public void Damage(int damageAmount)
+	public void Damage(int gunDamage)
 	{
 		//subtract damage amount when Damage function is called
 
-		currentHealth -= damageAmount;
+		currentHealth -= 1;
 
 
 		//Check if health has fallen below zero
@@ -35,5 +31,15 @@ public class ShootableBox : MonoBehaviour {
 		Renderer rend = GetComponent<Renderer>();
 		rend.material.shader = Shader.Find("Specular");
 		rend.material.SetColor("_SpecColor", color);
+        
 	}
+
+    public bool isColor(Color colorAux){
+        if (colorAux == color)
+        {
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

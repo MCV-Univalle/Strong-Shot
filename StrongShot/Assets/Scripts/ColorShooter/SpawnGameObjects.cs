@@ -34,7 +34,7 @@ public class SpawnGameObjects : MonoBehaviour {
 	void MakeThingToSpawn()
 	{
 		// create a new gameObject
-		GameObject clone = Instantiate(redWordPrefab, transform.position, transform.rotation) as GameObject;
+		//GameObject clone = Instantiate(redWordPrefab, transform.position, transform.rotation) as GameObject;
 
 		// set chaseTarget if specified
 
