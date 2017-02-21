@@ -24,6 +24,7 @@ public class RayCastShoot : MonoBehaviour {
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.07f);
 	private AudioSource gunAudio;
 	private LineRenderer laserLine;
+	private Image point;
 	private Image colorSelector;
     private Image NextColor;
     private Image PreviousColor;
@@ -37,6 +38,7 @@ public class RayCastShoot : MonoBehaviour {
 		laserLine = GetComponent<LineRenderer> ();
 		gunAudio = GetComponent<AudioSource> ();
 		fpsCam = GetComponentInParent<Camera> ();
+		point = GameObject.Find ("Point").GetComponent<Image> ();
 		colorSelector = GameObject.Find ("ColorSelector").GetComponent<Image> ();
         NextColor = GameObject.Find("NextColor").GetComponent<Image>();
         PreviousColor = GameObject.Find("PreviousColor").GetComponent<Image>();
@@ -52,6 +54,7 @@ public class RayCastShoot : MonoBehaviour {
 
 	void Update () 
 	{
+		point.color = ColorList[Current];
 		colorSelector.color = ColorList[Current];
         NextColor.color = ColorList[Next];
         PreviousColor.color = ColorList[Previous];
