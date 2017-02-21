@@ -15,9 +15,9 @@ public class RayCastShoot : MonoBehaviour {
 
 	List<Color> ColorList = new List<Color> ();
 
-	public int Current = 0;
-    public int Next = 1;
-    public int Previous = 2;
+	int Current = 0;
+    int Next = 1;
+    int Previous = 2;
 
 
     private Camera fpsCam;
@@ -75,7 +75,7 @@ public class RayCastShoot : MonoBehaviour {
                 if (shootableBox != null) {
                     if (shootableBox.isColor(ColorList[Current])) {
                         shootableBox.Damage(gunDamage);
-                        //shootableBox.Colored(color);
+                        //shootableBox.Colored(ColorList[Current]);
                     }
                     shootableBox.Colored(ColorList[Current]);
                 }
@@ -127,13 +127,15 @@ public class RayCastShoot : MonoBehaviour {
             {
                 Next = 2;
             }
+
+            
         }
 	}
 
 	private IEnumerator ShotEffect(){
 		gunAudio.Play ();
-
-		laserLine.enabled = true;
+        colorSelector.color = ColorList[Current];
+        laserLine.enabled = true;
 		yield return shotDuration;
 		laserLine.enabled = false;
 	}

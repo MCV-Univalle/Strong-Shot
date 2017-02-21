@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShootableBox : MonoBehaviour {
-
+    public int id = 0;
 	//The box's current health point total
-	public int currentHealth = 3;
-    Color color = Color.red;
+	public int currentHealth = 1;
+    List<Color> ColorList = new List<Color>();
 
     void start(){
-        
+        ColorList.Add(Color.red);
+        ColorList.Add(Color.yellow);
+        ColorList.Add(Color.blue);
     }
+
 
 	public void Damage(int gunDamage)
 	{
@@ -35,11 +38,33 @@ public class ShootableBox : MonoBehaviour {
 	}
 
     public bool isColor(Color colorAux){
-        if (colorAux == color)
-        {
-            return true;
-        }else {
-            return false;
+        switch (id){
+            case 0:
+                if (colorAux.Equals(Color.red)){
+                    return true;
+                }else{
+                    return false;
+                }
+            case 1:
+                if (colorAux.Equals(Color.blue))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            case 2:
+                if (colorAux.Equals(Color.yellow))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            default:
+                return false;
         }
     }
 }
