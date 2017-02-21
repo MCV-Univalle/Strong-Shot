@@ -9,16 +9,17 @@ public class SpawnGameObjects : MonoBehaviour {
 
 	public float minSecondsBetweenSpawning = 3.0f;
 	public float maxSecondsBetweenSpawning = 6.0f;
-	
-	public Transform chaseTarget;
-	
+
 	private float savedTime;
 	private float secondsBetweenSpawning;
+
+	private int id = 0;
 
 	// Use this for initialization
 	void Start () {
 		savedTime = Time.time;
 		secondsBetweenSpawning = Random.Range (minSecondsBetweenSpawning, maxSecondsBetweenSpawning);
+
 	}
 	
 	// Update is called once per frame
@@ -33,10 +34,17 @@ public class SpawnGameObjects : MonoBehaviour {
 
 	void MakeThingToSpawn()
 	{
-		// create a new gameObject
-		//GameObject clone = Instantiate(redWordPrefab, transform.position, transform.rotation) as GameObject;
-
-		// set chaseTarget if specified
-
+		id = Random.Range (0,3);
+		switch (id){
+		case 0:
+			GameObject cloneRed = Instantiate (redWordPrefab, transform.position, transform.rotation) as GameObject;
+			break;
+		case 1:
+			GameObject cloneBlue = Instantiate (blueWordPrefab, transform.position, transform.rotation) as GameObject;
+			break;
+		case 2:
+			GameObject cloneYellow = Instantiate (yellowWordPrefab, transform.position, transform.rotation) as GameObject;
+			break;
+		}
 	}
 }

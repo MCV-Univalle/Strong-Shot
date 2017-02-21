@@ -38,33 +38,28 @@ public class ShootableBox : MonoBehaviour {
 	}
 
     public bool isColor(Color colorAux){
-        switch (id){
-            case 0:
-                if (colorAux.Equals(Color.red)){
-                    return true;
-                }else{
-                    return false;
-                }
-            case 1:
-                if (colorAux.Equals(Color.blue))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            case 2:
-                if (colorAux.Equals(Color.yellow))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            default:
-                return false;
+        
+		bool es_correcto = false;
+		switch (id){
+		case 0:
+			if (colorAux.Equals (Color.red)) {
+				es_correcto = true;
+			}
+			break;
+        case 1:
+			if (colorAux.Equals (Color.blue)) {
+				es_correcto = true;
+			}
+			break;
+        case 2:
+			if (colorAux.Equals (Color.yellow)) {
+				es_correcto = true;
+			}
+			break;
+		default:
+			return false;
+			break;
         }
+		return es_correcto;
     }
 }

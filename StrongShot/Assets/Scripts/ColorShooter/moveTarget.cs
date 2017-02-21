@@ -7,13 +7,16 @@ public class moveTarget : MonoBehaviour {
 	public float spinSpeed = 180.0f;
 	public float moveSpeed = 0.1f;
 	private float acu = 0.0f;
+	public bool dir = false;
 
 
 	
 	// Update is called once per frame
 	void Update () {
-		//gameObject.transform.Translate(Vector3.up*moveSpeed*Time.deltaTime);	
-		acu = acu + Time.deltaTime;
-		gameObject.transform.Translate(Vector3.back*Mathf.Cos(acu*-1)*moveSpeed);
+		if (dir) { 
+			gameObject.transform.Translate (Vector3.right * Time.deltaTime * moveSpeed);
+		} else {
+			gameObject.transform.Translate (Vector3.left * Time.deltaTime * moveSpeed);
+		}
 	}
 }
