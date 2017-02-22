@@ -137,3 +137,4 @@ MonoBehaviour:
   spinSpeed: 0
   moveSpeed: 0.2
   dir: 1
+  deadPosition: 7

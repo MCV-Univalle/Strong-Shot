@@ -124,6 +124,7 @@ MonoBehaviour:
   spinSpeed: 0
   moveSpeed: 0.5
   dir: 1
+  deadPosition: 7
 --- !u!114 &114747499222131184
 MonoBehaviour:
   m_ObjectHideFlags: 1
