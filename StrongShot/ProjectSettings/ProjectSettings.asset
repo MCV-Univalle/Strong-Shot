@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  productGUID: b8059616f74a638458b8c236a6f7730f
+  productGUID: 0cdd059b6a068bb458a122f5132bd00c
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -425,8 +425,8 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   tizenDeploymentTarget: 
-  tizenDeploymentTargetType: 0
-  tizenMinOSVersion: 0
+  tizenDeploymentTargetType: -1
+  tizenMinOSVersion: 1
   n3dsUseExtSaveData: 0
   n3dsCompressStaticMem: 1
   n3dsExtSaveDataNumber: 0x12345
@@ -467,9 +467,8 @@ PlayerSettings:
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
   vrEditorSettings: {}
-  cloudServicesEnabled:
-    UNet: 1
-  cloudProjectId: af5a4372-4ac1-4767-adac-8dd89574a36e
-  projectName: StrongShot
-  organizationId: camilo1090
+  cloudServicesEnabled: {}
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
