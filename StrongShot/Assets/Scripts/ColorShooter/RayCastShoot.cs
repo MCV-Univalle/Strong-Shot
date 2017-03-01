@@ -13,7 +13,12 @@ public class RayCastShoot : MonoBehaviour {
 	public Transform gunEnd;
 	public Color color = Color.white;
 
+	public Material RedMaterial;
+	public Material BlueMaterial;
+	public Material YellowMaterial;
+
 	List<Color> ColorList = new List<Color> ();
+	List<Material> MaterialList = new List<Material> ();
 
 	int Current = 0;
     int Next = 1;
@@ -28,13 +33,16 @@ public class RayCastShoot : MonoBehaviour {
 	private Image colorSelector;
     private Image NextColor;
     private Image PreviousColor;
+
     private float nextFire;
+	private GameObject shooterFPSWeapon;
 
 
 
 
 	void Start () 
 	{
+		shooterFPSWeapon = GameObject.Find ("ShooterFPSWeapon");
 		laserLine = GetComponent<LineRenderer> ();
 		gunAudio = GetComponent<AudioSource> ();
 		fpsCam = GetComponentInParent<Camera> ();
@@ -43,13 +51,16 @@ public class RayCastShoot : MonoBehaviour {
         NextColor = GameObject.Find("NextColor").GetComponent<Image>();
         PreviousColor = GameObject.Find("PreviousColor").GetComponent<Image>();
 
-
         ColorList.Add (Color.red);
-		//ColorList.Add (Color.green);
-		ColorList.Add(Color.yellow);
 		ColorList.Add (Color.blue);
-		//ColorList.Add (Color.black);
-		//ColorList.Add (Color.white);
+		ColorList.Add(Color.yellow);
+
+
+		MaterialList.Add (RedMaterial);
+		MaterialList.Add(BlueMaterial);
+		MaterialList.Add (YellowMaterial);
+
+
 	}
 
 	void Update () 
@@ -58,6 +69,7 @@ public class RayCastShoot : MonoBehaviour {
 		colorSelector.color = ColorList[Current];
         NextColor.color = ColorList[Next];
         PreviousColor.color = ColorList[Previous];
+		shooterFPSWeapon.GetComponent<Renderer>().material = MaterialList[Current];
 
         if (Input.GetButton("Fire1") && Time.time > nextFire)
 		{

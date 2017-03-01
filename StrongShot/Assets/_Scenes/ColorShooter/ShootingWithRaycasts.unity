@@ -683,7 +683,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 3
   m_Materials:
-  - {fileID: 2100000, guid: 31f7dd88223fbdd48b6f53412a11b7c9, type: 2}
+  - {fileID: 2100000, guid: 59a0a94cd0a5f4ca6bf5a2d7c1801986, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -943,6 +943,9 @@ MonoBehaviour:
   hitForce: 0
   gunEnd: {fileID: 564066985}
   color: {r: 1, g: 1, b: 1, a: 1}
+  RedMaterial: {fileID: 2100000, guid: 59a0a94cd0a5f4ca6bf5a2d7c1801986, type: 2}
+  BlueMaterial: {fileID: 2100000, guid: b644299e3a3e7480c9d04f77bf8990f3, type: 2}
+  YellowMaterial: {fileID: 2100000, guid: ca348be3e2a95448b995ba218ebbb60b, type: 2}
 --- !u!82 &844440732
 AudioSource:
   m_ObjectHideFlags: 0
