@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6909342520ee9487e9b35dd7277a3fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redWordPrefab: {fileID: 1011044349360162, guid: 45ceb2b93353e4eba87afe1576dd383c,
+  redWordPrefab: {fileID: 1032545758141548, guid: 279a53cff720b6446ad8b8616b36eff6,
     type: 2}
-  blueWordPrefab: {fileID: 1256650929762316, guid: 2f1cc2949f9de4ba8840fd403e219e70,
+  blueWordPrefab: {fileID: 1193567898666686, guid: 0db19e4089282874db47b9d4924de8f3,
     type: 2}
-  yellowWordPrefab: {fileID: 1931108424002994, guid: 55064d02bd7ff4231b8f5dd867fdb0e9,
+  yellowWordPrefab: {fileID: 1228257713465430, guid: 4a3fb70633739ba48960470c71289933,
     type: 2}
-  minSecondsBetweenSpawning: 3
-  maxSecondsBetweenSpawning: 6
+  minSecondsBetweenSpawning: 4
+  maxSecondsBetweenSpawning: 10
