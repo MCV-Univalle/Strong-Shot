@@ -297,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19608946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -15.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3052,10 +3052,9 @@ MonoBehaviour:
   - {fileID: 184792254}
   - {fileID: 791493782}
   WordsToFind: {fileID: 516366773}
-  WordsSelectedForReview: 0
   gameOverPanel: {fileID: 354598196}
   gameOverText: {fileID: 48751505}
-  numberOfWords: 5
+  numberOfWords: 1
 --- !u!4 &855481679
 Transform:
   m_ObjectHideFlags: 0
@@ -3149,6 +3148,21 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1441984064}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &963372708 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+  m_PrefabInternal: {fileID: 1336354493}
+--- !u!114 &963372711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 963372708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f68aa3c257d9af4db6c483efdfcb270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &975010519
 Prefab:
   m_ObjectHideFlags: 0
@@ -5207,19 +5221,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400224, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.09374654
+      value: -0.093746535
       objectReference: {fileID: 0}
     - target: {fileID: 400224, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6978552
+      value: 0.6978551
       objectReference: {fileID: 0}
     - target: {fileID: 400224, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.70746905
+      value: 0.707469
       objectReference: {fileID: 0}
     - target: {fileID: 400224, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.060806755
+      value: 0.060806748
       objectReference: {fileID: 0}
     - target: {fileID: 13700008, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_AABB.m_Center.y

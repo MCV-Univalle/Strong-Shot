@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour {
     private string LettersSelected;
     string[] selectedWords;
     public Text WordsToFind;
-	public KeyCode WordsSelectedForReview;
 	private Button[] selectedButtons;
 	private int buttonIndexCounter;
 	public GameObject gameOverPanel;
@@ -36,7 +35,7 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
-        unityChan = GameObject.Find("unitychan").GetComponent<AnimationController>(); ;
+        unityChan = GameObject.Find("unitychan").GetComponent<AnimationController>();
         LettersSelected = "";
 		buttonIndexCounter = 0;
 		selectedButtons = new Button[56];
