@@ -42,6 +42,6 @@ public class AnimationController : MonoBehaviour {
 
     public void EndGame()
     {
-        animator.Play("Bye!", -1, 0f);
+        animator.Play("Bye", -1, 0f);
     }
 }
