@@ -18,6 +18,10 @@ public class GameController : MonoBehaviour {
 	private int buttonIndexCounter;
 	public GameObject gameOverPanel;
 	public Text gameOverText;
+    public int numberOfWords;
+    private AnimationController unityChan;
+
+
 
     private string[] abc = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
     private string[] colors = {"RED", "BLUE", "BLACK", "WHITE", "YELLOW", "GREEN", "PURPLE", "PINK", "BROWN", "ORANGE" };
@@ -32,13 +36,14 @@ public class GameController : MonoBehaviour {
 
     void Start()
     {
+        unityChan = GameObject.Find("unitychan").GetComponent<AnimationController>(); ;
         LettersSelected = "";
 		buttonIndexCounter = 0;
-		selectedButtons = new Button[100];
+		selectedButtons = new Button[56];
 		gameOverPanel.SetActive (false);
 
         DivideWords();
-        if(counterOfLetters <= 100)
+        if(counterOfLetters <= 56)
         {
             SetGameControllerReferenceOnButtonsInitialWords();
         }
@@ -51,7 +56,6 @@ public class GameController : MonoBehaviour {
     {
         System.Random r = new System.Random();    
         int pos;
-        int numberOfWords = 2;
         selectedWords = new string[numberOfWords];
         int[] freqOfWords = new int[numberOfWords];
         for (int i = 0; i < freqOfWords.Length; i++)
@@ -199,7 +203,8 @@ public class GameController : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.Space) ) {
 			if (WordCorrect ()) {
-				for (int i = 0; i < selectedWords.Length; i++) {
+                unityChan.WordCorrect();
+                for (int i = 0; i < selectedWords.Length; i++) {
 					if (selectedWords [i] == LettersSelected) {
 						LettersSelected = "";
 						selectedWords [i] = "";
@@ -208,7 +213,8 @@ public class GameController : MonoBehaviour {
 					}
 				}
 			} else {
-				for (int i = 0; i < selectedButtons.Length; i++) {
+                unityChan.WordMiss();
+                for (int i = 0; i < selectedButtons.Length; i++) {
 					selectedButtons [i].interactable = true;
 					LettersSelected = "";
 				}
@@ -235,8 +241,10 @@ public class GameController : MonoBehaviour {
 		for (int i = 0; i < buttonMatrix.Length; i++) {
 			buttonMatrix [i].GetComponentInParent<ButtonScript> ().button.interactable = false;
 			gameOverPanel.SetActive (true);
+            
 		}
-	}
+        unityChan.EndGame();
+    }
 
 }
 
